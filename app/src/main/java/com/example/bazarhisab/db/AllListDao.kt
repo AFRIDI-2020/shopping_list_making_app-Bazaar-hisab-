@@ -12,4 +12,7 @@ interface AllListDao {
 
     @Query ("SELECT * FROM AllList ORDER BY id DESC")
     suspend fun getAllList() : List<AllList>
+
+    @Query ("SELECT id FROM AllList WHERE list_name LIKE :listName")
+    suspend fun getId(listName : String) : Int
 }

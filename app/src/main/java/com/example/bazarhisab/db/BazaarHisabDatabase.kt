@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [AllList::class], version = 1)
+@Database(entities = [AllList::class, Item::class], version = 1)
 abstract class BazaarHisabDatabase : RoomDatabase(){
     abstract fun allUserDao() : AllListDao
+    abstract fun itemDao() : ItemDao
 
     companion object{
 

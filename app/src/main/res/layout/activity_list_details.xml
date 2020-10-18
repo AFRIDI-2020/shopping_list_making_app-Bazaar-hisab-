@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     tools:context=".ui.ListDetailsActivity">
 
     <LinearLayout
+        android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/theme_color"
@@ -17,22 +18,39 @@
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24" />
 
         <TextView
             android:id="@+id/list_name_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:text="shopping_name"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20sp"/>
+            android:layout_marginLeft="20sp"
+            android:text="shopping_name"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
     </LinearLayout>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:background="@color/theme_color"
+        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorColor="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:tabTextColor="@color/white" />
 
-</LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_layout" />
+
+
+</RelativeLayout>

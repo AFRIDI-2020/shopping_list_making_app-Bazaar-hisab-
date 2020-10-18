@@ -29,8 +29,10 @@ class AllListAdapter(val allList: List<AllList> ) : RecyclerView.Adapter<AllList
     override fun onBindViewHolder(holder: AllListAdapter.ViewHolder, position: Int) {
         holder.view.list_name_TV.text = allList[position].listName
         holder.view.list_id_TV.text = (position+1).toString()
+        val listName = allList[position].listName
         holder.view.list_name_TV.setOnClickListener {
             val intent = Intent(it.context,ListDetailsActivity::class.java)
+            intent.putExtra("listName",listName)
             it.context.startActivity(intent)
         }
     }
